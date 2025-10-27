@@ -1,0 +1,125 @@
+:root {
+  --bg: #0f1724;
+  --panel: #0b1220;
+  --muted: #9aa4b2;
+  --accent: #f59e0b;
+  --glass: rgba(255, 255, 255, 0.03);
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: "Noto Kufi Arabic", Inter, system-ui, Tahoma;
+  margin: 0;
+  background: linear-gradient(180deg, #071023 0%, #071827 100%);
+  color: #e6eef7;
+}
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+header h1 {
+  margin: 0;
+  font-weight: 700;
+}
+.container {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 14px;
+  padding: 14px;
+  min-height: calc(100vh - 64px);
+}
+.panel {
+  background: var(--panel);
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 6px 28px rgba(2, 6, 23, 0.6);
+}
+.surah-list {
+  max-height: calc(100vh - 220px);
+  overflow: auto;
+  padding: 6px;
+}
+.surah {
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+.surah:hover {
+  border-color: rgba(245, 158, 11, 0.12);
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.01), transparent);
+}
+.search {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+input[type="search"],
+select,
+input[type="text"] {
+  flex: 1;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  background: var(--glass);
+  color: inherit;
+}
+.controls {
+  display: flex;
+  gap: 8px;
+}
+button {
+  background: var(--accent);
+  border: none;
+  color: #062018;
+  padding: 8px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+main {
+  padding: 12px;
+}
+.ayah {
+  padding: 12px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.01), transparent);
+  border: 1px solid rgba(255, 255, 255, 0.02);
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+}
+.ayah .text {
+  flex: 1;
+}
+.ayah small {
+  display: block;
+  color: var(--muted);
+}
+.player {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.fav-item {
+  padding: 8px;
+  border-radius: 8px;
+  margin-bottom: 6px;
+  background: rgba(255, 255, 255, 0.02);
+  display: flex;
+  justify-content: space-between;
+}
+@media (max-width: 880px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+  .surah-list {
+    max-height: 220px;
+  }
+}

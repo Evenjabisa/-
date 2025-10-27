@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="style.css">
+  <title>قرآنا عربيًا غير ذي عوج</title>
+</head>
+<body>
+  <header>
+    <h1>قرآنا عربيًا غير ذي عوج</h1>
+    <div style="display:flex;gap:10px;align-items:center">
+      <div style="display:flex;gap:8px;align-items:center">
+        <label><input id="toggleTheme" type="checkbox" /> وضع النهار</label>
+      </div>
+      <button id="refreshBtn">تحديث</button>
+    </div>
+  </header>
+
+  <div class="container">
+    <aside class="panel" aria-label="قائمة السور">
+      <div class="search">
+        <input id="search" type="search" placeholder="ابحث عن سورة أو رقم" />
+        <button id="clearSearch">مسح</button>
+      </div>
+
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+        <strong>السور</strong>
+        <small id="surahCount">...</small>
+      </div>
+
+      <div id="surahList" class="surah-list"></div>
+
+      <hr style="border:none;height:1px;background:rgba(255,255,255,0.03);margin:12px 0" />
+
+      <div style="margin-bottom:8px">
+        <strong>قارئ الصوت</strong>
+        <div style="display:flex;gap:8px;margin-top:8px">
+          <select id="reciterSelect" aria-label="اختيار القارئ">
+            <!-- نبدأ بقارئ افتراضي شائع، ويمكن إدخال معرّف مخصص أدناه -->
+            <option value="ar.alafasy">Mishary Alafasy (ar.alafasy)</option>
+            <!-- الخيار التالي يسمح بإدخال معرّف مخصص -->
+            <option value="__custom__">ادخل معرّف قارئ مخصّص...</option>
+          </select>
+        </div>
+        <input id="customReciter" type="text" placeholder="مثال: ar.alafasy أو ar.some_reciter_id (اتركه فارغًا لاستخدام الافتراضي)" style="margin-top:8px;display:none" />
+        <small style="display:block;margin-top:8px;color:var(--muted)">يمكن استخدام معرّف القارئ وفق صيغة editions في AlQuran Cloud. (مثال: <code>ar.alafasy</code>)</small>
+      </div>
+
+      <hr style="border:none;height:1px;background:rgba(255,255,255,0.03);margin:12px 0" />
+
+      <div>
+        <strong>المفضلة</strong>
+        <div id="favorites" style="margin-top:8px"></div>
+      </div>
+    </aside>
+
+    <main class="panel">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+        <div>
+          <h2 id="currentSurahTitle">اختر سورة من اليسار</h2>
+          <small id="currentSurahInfo"></small>
+        </div>
+
+        <div class="player">
+          <button id="prevBtn">⏮</button>
+          <button id="playPauseBtn">▶</button>
+          <button id="nextBtn">⏭</button>
+          <button id="playSurahBtn">تشغيل متسلسل</button>
+          <button id="downloadJson">تنزيل JSON</button>
+        </div>
+      </div>
+
+      <div id="ayahsContainer">سيتم عرض الآيات هنا</div>
+    </main>
+  </div>
+
+  <audio id="audioPlayer" crossorigin="anonymous"></audio>
+ <script src="script.js"></script>
+</body>
+</html>
